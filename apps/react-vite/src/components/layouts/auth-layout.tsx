@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router';
 
 import logo from '@/assets/logo.svg';
 import { Head } from '@/components/seo';
-import { Link } from '@/components/ui/link';
+import { Link } from '@/components/ui/atoms/link';
 import { paths } from '@/config/paths';
 import { useUser } from '@/lib/auth';
 

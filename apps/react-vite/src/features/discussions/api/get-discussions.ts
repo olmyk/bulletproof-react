@@ -1,20 +1,20 @@
 import { queryOptions, useQuery } from '@tanstack/react-query';
 
-import { api } from '@/lib/api-client';
 import { QueryConfig } from '@/lib/react-query';
-import { Discussion, Meta } from '@/types/api';
+
+import diInit from './di';
+import { IDiscussion } from '../model/IDiscussion';
+import { IMeta } from '../model/IMeta';
+
+var di = diInit();
 
 export const getDiscussions = (
   page = 1,
 ): Promise<{
-  data: Discussion[];
-  meta: Meta;
+  data: IDiscussion[];
+  meta: IMeta;
 }> => {
-  return api.get(`/discussions`, {
-    params: {
-      page,
-    },
-  });
+  return di.api.discussion.getDiscussions(page);
 };
 
 export const getDiscussionsQueryOptions = ({

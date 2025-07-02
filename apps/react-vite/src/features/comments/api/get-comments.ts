@@ -1,8 +1,11 @@
 import { infiniteQueryOptions, useInfiniteQuery } from '@tanstack/react-query';
 
-import { api } from '@/lib/api-client';
 import { QueryConfig } from '@/lib/react-query';
-import { Comment, Meta } from '@/types/api';
+import diInit from './di';
+import { IComment } from '../model/IComment';
+import { IMeta } from '../model/IMeta';
+
+var di = diInit();
 
 export const getComments = ({
   discussionId,
@@ -10,12 +13,10 @@ export const getComments = ({
 }: {
   discussionId: string;
   page?: number;
-}): Promise<{ data: Comment[]; meta: Meta }> => {
-  return api.get(`/comments`, {
-    params: {
-      discussionId,
-      page,
-    },
+}): Promise<{ data: IComment[]; meta: IMeta }> => {
+  return di.api.comment.getComments({
+    discussionId,
+    page,
   });
 };
 

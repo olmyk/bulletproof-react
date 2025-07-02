@@ -1,9 +1,9 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useSearchParams } from 'react-router';
 
-import { Link } from '@/components/ui/link';
-import { Spinner } from '@/components/ui/spinner';
-import { Table } from '@/components/ui/table';
+import { Link } from '@/components/ui/atoms/link';
+import { Spinner } from '@/components/ui/atoms/spinner';
+import { Table } from '@/components/ui/molecules/table';
 import { paths } from '@/config/paths';
 import { formatDate } from '@/utils/format';
 

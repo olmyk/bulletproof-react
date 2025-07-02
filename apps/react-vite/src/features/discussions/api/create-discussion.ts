@@ -1,11 +1,14 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { z } from 'zod';
 
-import { api } from '@/lib/api-client';
 import { MutationConfig } from '@/lib/react-query';
-import { Discussion } from '@/types/api';
 
 import { getDiscussionsQueryOptions } from './get-discussions';
+
+import diInit from './di';
+import { IDiscussion } from '../model/IDiscussion';
+
+var di = diInit();
 
 export const createDiscussionInputSchema = z.object({
   title: z.string().min(1, 'Required'),
@@ -18,8 +21,8 @@ export const createDiscussion = ({
   data,
 }: {
   data: CreateDiscussionInput;
-}): Promise<Discussion> => {
-  return api.post(`/discussions`, data);
+}): Promise<IDiscussion> => {
+  return di.api.discussion.createDiscussion({ data });
 };
 
 type UseCreateDiscussionOptions = {

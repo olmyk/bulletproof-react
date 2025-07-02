@@ -1,5 +1,5 @@
-import { MDPreview } from '@/components/ui/md-preview';
-import { Spinner } from '@/components/ui/spinner';
+import { MDPreview } from '@/components/ui/atoms/md-preview';
+import { Spinner } from '@/components/ui/atoms/spinner';
 import { formatDate } from '@/utils/format';
 
 import { useDiscussion } from '../api/get-discussion';

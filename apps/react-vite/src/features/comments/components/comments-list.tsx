@@ -1,16 +1,19 @@
 import { ArchiveX } from 'lucide-react';
 
-import { Button } from '@/components/ui/button';
-import { MDPreview } from '@/components/ui/md-preview';
-import { Spinner } from '@/components/ui/spinner';
+import { Button } from '@/components/ui/atoms/button';
+import { MDPreview } from '@/components/ui/atoms/md-preview';
+import { Spinner } from '@/components/ui/atoms/spinner';
 import { useUser } from '@/lib/auth';
-import { POLICIES, Authorization } from '@/lib/authorization';
-import { User } from '@/types/api';
+import { Authorization } from '@/lib/authorization';
 import { formatDate } from '@/utils/format';
 
 import { useInfiniteComments } from '../api/get-comments';
 
 import { DeleteComment } from './delete-comment';
+import { IUser } from '../model/IUser';
+import diInit from '../api/di';
+
+var di = diInit();
 
 type CommentsListProps = {
   discussionId: string;
@@ -52,8 +55,8 @@ export const CommentsList = ({ discussionId }: CommentsListProps) => {
             className="w-full bg-white p-4 shadow-sm"
           >
             <Authorization
-              policyCheck={POLICIES['comment:delete'](
-                user.data as User,
+              policyCheck={di.policies.delete(
+                user.data as IUser,
                 comment,
               )}
             >

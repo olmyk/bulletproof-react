@@ -1,14 +1,16 @@
 import { Plus } from 'lucide-react';
 
-import { Button } from '@/components/ui/button';
-import { Form, FormDrawer, Input, Textarea } from '@/components/ui/form';
-import { useNotifications } from '@/components/ui/notifications';
+import { Button } from '@/components/ui/atoms/button';
+import { useNotifications } from '@/components/ui/molecules/notifications';
 import { Authorization, ROLES } from '@/lib/authorization';
 
 import {
   createDiscussionInputSchema,
   useCreateDiscussion,
 } from '../api/create-discussion';
+import { Form, FormDrawer, } from '@/components/ui/molecules/form';
+import { Input } from '@/components/ui/atoms/input';
+import { Textarea } from '@/components/ui/atoms/textarea';
 
 export const CreateDiscussion = () => {
   const { addNotification } = useNotifications();

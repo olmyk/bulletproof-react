@@ -1,6 +1,6 @@
 import Axios, { InternalAxiosRequestConfig } from 'axios';
 
-import { useNotifications } from '@/components/ui/notifications';
+import { useNotifications } from '@/components/ui/molecules/notifications';
 import { env } from '@/config/env';
 import { paths } from '@/config/paths';
 

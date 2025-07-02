@@ -1,10 +1,14 @@
-import { Spinner } from '@/components/ui/spinner';
-import { Table } from '@/components/ui/table';
+import { Spinner } from '@/components/ui/atoms/spinner';
+import { Table } from '@/components/ui/molecules/table';
 import { formatDate } from '@/utils/format';
 
 import { useUsers } from '../api/get-users';
 
 import { DeleteUser } from './delete-user';
+
+import diInit from '../api/di';
+
+var di = diInit();
 
 export const UsersList = () => {
   const usersQuery = useUsers();
@@ -23,7 +27,7 @@ export const UsersList = () => {
 
   return (
     <Table
-      data={users}
+      data={di.getUsersDTO(users)}
       columns={[
         {
           title: 'First Name',

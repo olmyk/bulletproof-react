@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { NavLink, useNavigate, useNavigation } from 'react-router';
 
 import logo from '@/assets/logo.svg';
-import { Button } from '@/components/ui/button';
-import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
+import { Button } from '@/components/ui/atoms/button';
+import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/molecules/drawer';
 import { paths } from '@/config/paths';
 import { useLogout } from '@/lib/auth';
 import { ROLES, useAuthorization } from '@/lib/authorization';
@@ -16,8 +16,8 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '../ui/dropdown';
-import { Link } from '../ui/link';
+} from '../ui/atoms/dropdown';
+import { Link } from '../ui/atoms/link';
 
 type SideNavigationItem = {
   name: string;

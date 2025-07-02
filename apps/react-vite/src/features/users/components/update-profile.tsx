@@ -1,14 +1,16 @@
 import { Pen } from 'lucide-react';
 
-import { Button } from '@/components/ui/button';
-import { Form, FormDrawer, Input, Textarea } from '@/components/ui/form';
-import { useNotifications } from '@/components/ui/notifications';
+import { Button } from '@/components/ui/atoms/button';
+import { useNotifications } from '@/components/ui/molecules/notifications';
 import { useUser } from '@/lib/auth';
 
 import {
   updateProfileInputSchema,
   useUpdateProfile,
 } from '../api/update-profile';
+import { Form, FormDrawer, } from '@/components/ui/molecules/form';
+import { Input } from '@/components/ui/atoms/input';
+import { Textarea } from '@/components/ui/atoms/textarea';
 
 export const UpdateProfile = () => {
   const user = useUser();

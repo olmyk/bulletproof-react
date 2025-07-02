@@ -3,7 +3,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { useParams, LoaderFunctionArgs } from 'react-router';
 
 import { ContentLayout } from '@/components/layouts';
-import { Spinner } from '@/components/ui/spinner';
+import { Spinner } from '@/components/ui/atoms/spinner';
 import { getInfiniteCommentsQueryOptions } from '@/features/comments/api/get-comments';
 import { Comments } from '@/features/comments/components/comments';
 import {
@@ -14,26 +14,26 @@ import { DiscussionView } from '@/features/discussions/components/discussion-vie
 
 export const clientLoader =
   (queryClient: QueryClient) =>
-  async ({ params }: LoaderFunctionArgs) => {
-    const discussionId = params.discussionId as string;
+    async ({ params }: LoaderFunctionArgs) => {
+      const discussionId = params.discussionId as string;
 
-    const discussionQuery = getDiscussionQueryOptions(discussionId);
-    const commentsQuery = getInfiniteCommentsQueryOptions(discussionId);
+      const discussionQuery = getDiscussionQueryOptions(discussionId);
+      const commentsQuery = getInfiniteCommentsQueryOptions(discussionId);
 
-    const promises = [
-      queryClient.getQueryData(discussionQuery.queryKey) ??
+      const promises = [
+        queryClient.getQueryData(discussionQuery.queryKey) ??
         (await queryClient.fetchQuery(discussionQuery)),
-      queryClient.getQueryData(commentsQuery.queryKey) ??
+        queryClient.getQueryData(commentsQuery.queryKey) ??
         (await queryClient.fetchInfiniteQuery(commentsQuery)),
-    ] as const;
+      ] as const;
 
-    const [discussion, comments] = await Promise.all(promises);
+      const [discussion, comments] = await Promise.all(promises);
 
-    return {
-      discussion,
-      comments,
+      return {
+        discussion,
+        comments,
+      };
     };
-  };
 
 const DiscussionRoute = () => {
   const params = useParams();

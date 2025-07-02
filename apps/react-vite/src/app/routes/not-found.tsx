@@ -1,4 +1,4 @@
-import { Link } from '@/components/ui/link';
+import { Link } from '@/components/ui/atoms/link';
 import { paths } from '@/config/paths';
 
 const NotFoundRoute = () => {

@@ -1,11 +1,13 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { z } from 'zod';
 
-import { api } from '@/lib/api-client';
 import { MutationConfig } from '@/lib/react-query';
-import { Comment } from '@/types/api';
 
 import { getInfiniteCommentsQueryOptions } from './get-comments';
+import diInit from './di';
+import { IComment } from '../model/IComment';
+
+var di = diInit();
 
 export const createCommentInputSchema = z.object({
   discussionId: z.string().min(1, 'Required'),
@@ -18,8 +20,8 @@ export const createComment = ({
   data,
 }: {
   data: CreateCommentInput;
-}): Promise<Comment> => {
-  return api.post('/comments', data);
+}): Promise<IComment> => {
+  return di.api.comment.createComment({ data });
 };
 
 type UseCreateCommentOptions = {

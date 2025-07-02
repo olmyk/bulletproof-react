@@ -1,9 +1,10 @@
 import { Link, useSearchParams } from 'react-router';
 
-import { Button } from '@/components/ui/button';
-import { Form, Input } from '@/components/ui/form';
+import { Button } from '@/components/ui/atoms/button';
 import { paths } from '@/config/paths';
 import { useLogin, loginInputSchema } from '@/lib/auth';
+import { Form } from '@/components/ui/molecules/form';
+import { Input } from '@/components/ui/atoms/input';
 
 type LoginFormProps = {
   onSuccess: () => void;

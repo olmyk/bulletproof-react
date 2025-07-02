@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/button';
-import { ConfirmationDialog } from '@/components/ui/dialog';
-import { useNotifications } from '@/components/ui/notifications';
+import { Button } from '@/components/ui/atoms/button';
+import { ConfirmationDialog } from '@/components/ui/molecules/dialog';
+import { useNotifications } from '@/components/ui/molecules/notifications';
 import { useUser } from '@/lib/auth';
 
 import { useDeleteUser } from '../api/delete-user';

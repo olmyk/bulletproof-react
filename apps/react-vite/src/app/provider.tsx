@@ -5,8 +5,8 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { HelmetProvider } from 'react-helmet-async';
 
 import { MainErrorFallback } from '@/components/errors/main';
-import { Notifications } from '@/components/ui/notifications';
-import { Spinner } from '@/components/ui/spinner';
+import { Notifications } from '@/components/ui/molecules/notifications';
+import { Spinner } from '@/components/ui/atoms/spinner';
 import { AuthLoader } from '@/lib/auth';
 import { queryConfig } from '@/lib/react-query';
 
